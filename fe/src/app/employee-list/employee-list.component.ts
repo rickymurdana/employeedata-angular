@@ -13,7 +13,7 @@ export class EmployeeListComponent implements OnInit {
   public employees = [];
   searchText: string;
   errorMsg = '';
-  selectedEmployee;
+  selectPage: number = 10;
   curPage: number;
   pageSize: number;
   faSearch = faSearch;
@@ -30,10 +30,8 @@ export class EmployeeListComponent implements OnInit {
     this.pageSize = 10;
   }
 
-  onSelect(employee) {
-    this.router.navigate(['employee', employee.id])
-    this.selectedEmployee = employee.id;
-    console.log(this.selectedEmployee)
+  onSelect(value) {
+    this.pageSize = value;
   }
 
   gotoAdd() {

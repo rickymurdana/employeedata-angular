@@ -33,6 +33,13 @@ h1 {
     font-size: 35px;
 }
 
+th select {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: 50px;
+}
+
 .search-container {
     width: 250px;
 	height: 25px;

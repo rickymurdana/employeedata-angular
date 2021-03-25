@@ -24,7 +24,15 @@
                 </th>
                 <th (click)="sort('email')">Email &nbsp;<fa-icon [icon]="faSort"></fa-icon>
                 </th>
-                <th>Action</th>
+                <th>
+                    Action
+                    <select [(ngModel)]="selectPage" (change)="onSelect(selectPage)">
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                </th>
             </tr>
         </thead>
         <tbody>
