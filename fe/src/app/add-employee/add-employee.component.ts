@@ -14,8 +14,6 @@ import { EmployeeService } from '../employee.service';
 export class AddEmployeeComponent implements OnInit {
   bd: NgbDateStruct;
   desc: NgbDateStruct;
-  dateBd: string;
-  dateDesc: string;
   faCal = faCalendar;
   groupHasError = true;
   dateDescHasError = true;
@@ -70,12 +68,10 @@ export class AddEmployeeComponent implements OnInit {
       firstName: form.value.firstname,
       lastName: form.value.lastname,
       email: form.value.email,
-      // birthDate: this.dateBd,
       birthDate: form.value.bd,
       basicSalary: form.value.salary,
       status: form.value.status,
       group: form.value.group,
-      // description: this.dateDesc
       description: form.value.desc
     }
 
@@ -84,6 +80,10 @@ export class AddEmployeeComponent implements OnInit {
         data => console.log('Success!'),
         err => console.log(err)
       );
+
+    alert("New Employee has added");
+
+    this.router.navigate(['/employee']);
   }
 
   cancel() {
