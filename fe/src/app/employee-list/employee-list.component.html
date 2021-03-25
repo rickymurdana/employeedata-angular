@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="common">
+        <h1 class="main-header">E M P L O Y E E</h1>
+        <h1 class="main-header">L I S T</h1>
+        <div class="common-border"></div>
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col">
+            <button class="btn btn-success" (click)="gotoAdd()"> Add Employee </button>
+        </div>
+        <div class="col">
+            <div class="search-container">
+                <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
+                <input class="search-input" type="text" placeholder="Search..." [(ngModel)]="searchText">
+            </div>
+        </div>
+    </div>
+    <table class="table table-sm table-bordered">
+        <thead>
+            <tr>
+                <th (click)="sort('id')">No &nbsp;<fa-icon [icon]="faSort"></fa-icon>
+                </th>
+                <th (click)="sort('firstName')">Name &nbsp;<fa-icon [icon]="faSort"></fa-icon>
+                </th>
+                <th (click)="sort('email')">Email &nbsp;<fa-icon [icon]="faSort"></fa-icon>
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let employee of employees | orderBy: {key: reverse} | textFilter: { firstName: searchText, lastName: searchText, username: searchText } | orderBy: {key: reverse} | slice: (curPage * pageSize) - pageSize :curPage * pageSize">
+                <td>{{ employee.id }}</td>
+                <td class="name" [routerLink]="['/employee', employee.id]">{{ employee.firstName }}
+                    {{ employee.lastName }}</td>
+                <td>{{ employee.email }}</td>
+                <td class="action">
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="ml-3 btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col prev">
+            <button class="btn btn-secondary" [disabled]="curPage == 1" (click)="curPage = curPage - 1">Prev</button>
+        </div>
+        <div class="col num-pages">
+            <span>Page {{curPage}} of {{ numberOfPages() }}</span>
+        </div>
+        <div class="col next">
+            <button class="btn btn-secondary" [disabled]="curPage == numberOfPages()"
+                (click)="curPage = curPage + 1">Next</button>
+        </div>
+    </div>
+</div>

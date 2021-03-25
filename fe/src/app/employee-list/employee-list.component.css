@@ -1,0 +1,82 @@
+.common {
+    width: 33.3333%;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .main-header {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+
+  .common-border {
+    background: #ff4a57;
+    height: 3px;
+    width: 100px;
+    margin: 30px auto;
+  }
+
+.num-pages {
+    text-align: center;
+    margin: auto;
+}
+
+.next {
+    text-align: end;
+}
+
+.action {
+    text-align: center;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.search-container {
+    width: 250px;
+	height: 25px;
+	background-color: white;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+    padding: 20px;
+    margin: auto;
+    float: right;
+}
+
+.search-icon {
+    font-size: 15px;
+	color: #1f2235;
+}
+
+.search-input {
+    flex: 1;
+    height: 40px;
+	border: none;
+	outline: none;
+	padding-left: 10px;
+}
+
+th, .name {
+    cursor: pointer;
+}
+
+table {
+    color: white;
+}
+
+button {
+    border-radius: 30px;
+    color: #fff;
+}
+
+.btn-success {
+    width: 200px;
+    height: 40px;
+}
+
+.prev button, .next button, .action button {
+    width: 100px;
+}

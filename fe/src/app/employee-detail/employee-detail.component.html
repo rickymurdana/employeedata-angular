@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="common">
+        <h1 class="main-header">E M P L O Y E E</h1>
+        <h1 class="main-header">D E T A I L</h1>
+        <div class="common-border"></div>
+    </div>
+    <div class="ed-box">
+        <div class="ed-box__header">
+            {{ employeeDetail?.firstName.toUpperCase() }} {{ employeeDetail?.lastName.toUpperCase() }}
+        </div>
+        <div class="ed-box__info">
+            <div class="row">
+                <div class="col">
+                    <strong>First Name:</strong>
+                    <p>{{ employeeDetail?.firstName }}</p>
+                </div>
+                <div class="col">
+                    <strong>Last Name:</strong>
+                    <p>{{ employeeDetail?.lastName }}</p>
+                </div>
+                <div class="col">
+                    <strong>Username: </strong>
+                    <p>{{ employeeDetail?.username }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong>Email:</strong>
+                    <p>{{ employeeDetail?.email }}</p>
+                </div>
+                <div class="col">
+                    <strong>Birth Date: </strong>
+                    <p>{{ employeeDetail?.birthDate | date:'dd/MM/yyyy' }}</p>
+                </div>
+                <div class="col">
+                    <strong>Salary:</strong>
+                    <p>Rp. {{employeeDetail?.basicSalary | currency:'':'' }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong>Status: </strong>
+                    <p>{{employeeDetail?.status}}</p>
+                </div>
+                <div class="col">
+                    <strong>Group:</strong>
+                    <p>{{employeeDetail?.group}}</p>
+                </div>
+                <div class="col">
+                    <strong>Description:</strong>
+                    <p>{{employeeDetail?.description | date:'dd/MM/yyyy' }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button">
+        <button class="btn btn-primary" (click)="back()">OK</button>
+    </div>
+</div>

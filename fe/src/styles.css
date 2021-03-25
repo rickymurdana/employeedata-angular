@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+html, body { 
+    height: 100%; 
+}
+body {  
+    font-family: 'Roboto', "Helvetica Neue", sans-serif; 
+    /* background: linear-gradient(120deg, #2980b9, #8e44ad); */
+    background: #1f2235;
+    color: white;
+
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+    color: #fff;
+}
+
+

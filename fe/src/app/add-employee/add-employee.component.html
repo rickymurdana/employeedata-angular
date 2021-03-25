@@ -1,0 +1,146 @@
+<div class="container">
+    <div class="common">
+        <h1 class="main-header">A D D</h1>
+        <h1 class="main-header">E M P L O Y E E</h1>
+        <div class="common-border"></div>
+    </div>
+    <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)" novalidate>
+        <div class="row">
+            <div class="col mb-2 form-group">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" #username="ngModel" required minlength="4"
+                    [class.is-invalid]="username.invalid && username.touched" ngModel name="username">
+                <small class="text-danger" *ngIf="username.value == '' && username.touched">Username is required</small>
+                <small class="text-danger" *ngIf="username.value !== ''&& username.invalid && username.touched">Username
+                    is more than 4 character</small>
+            </div>
+            <div class="col mb-2 form-group">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" #email="ngModel" required
+                    [class.is-invalid]="email.invalid && email.touched" ngModel name="email" [email]="true">
+                <small class="text-danger" *ngIf="email.value == '' && email.touched">Email is required</small>
+                <small class="text-danger" *ngIf="email.value !== ''&& email.invalid && email.touched">Email is not
+                    valid</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-2 form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control" #firstname="ngModel" required minlength="3"
+                    [class.is-invalid]="firstname.invalid && firstname.touched" ngModel name="firstname">
+                <small class="text-danger" *ngIf="firstname.value == '' && firstname.touched">Firstname is
+                    required</small>
+                <small class="text-danger"
+                    *ngIf="firstname.value !== ''&& firstname.invalid && firstname.touched">Firstname
+                    is more than 3 character</small>
+            </div>
+            <div class="col mb-2 form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control" #lastname="ngModel" required
+                    [class.is-invalid]="lastname.invalid && lastname.touched" ngModel name="lastname">
+                <small class="text-danger" *ngIf="lastname.value == '' && lastname.touched">Lastname is required</small>
+            </div>
+        </div>
+        <div class="mb-2 form-group">
+            <div class="row">
+                <div class="col mb-2">
+                    <label class="form-label">Birth Date</label>
+                    <div class="input-group">
+                        <!-- <input class="form-control" #birthdate="ngModel" required
+                            [class.is-invalid]="birthdate.invalid && birthdate.touched" placeholder="dd/mm/yyyy"
+                            name="bd" [ngModel]="bd" (ngModelChange)="onSelectDateBd($event)" ngbDatepicker
+                            #bd="ngbDatepicker" [positionTarget]="buttonBd">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" #buttonBd (click)="bd.toggle()"
+                                type="button">
+                                <fa-icon [icon]="faCal"></fa-icon>
+                            </button>
+                        </div> -->
+                        <input type="date" class="form-control" #birthdate="ngModel" required
+                            [class.is-invalid]="birthdate.invalid && birthdate.touched"
+                            (blur)="checkDateBd(birthdate.value)" (change)="checkDateBd(birthdate.value)"
+                            placeholder="dd/mm/yyyy" ngModel name="bd">
+                    </div>
+                    <small class="text-danger" [class.d-none]="birthdate.valid ||
+                        birthdate.untouched">
+                        Birthdate is required
+                    </small>
+                    <small class="text-danger" [class.d-none]="!dateBdHasError || birthdate.untouched">
+                        Date cannot be greater than today
+                    </small>
+
+                </div>
+                <div class="col mb-2">
+                    <label class="form-label">Description</label>
+                    <div class="input-group">
+                        <!-- <input class="form-control" #description="ngModel" required
+                            [class.is-invalid]="description.invalid && description.touched" placeholder="dd/mm/yyyy"
+                            name="desc" [ngModel]="desc" (ngModelChange)="onSelectDateDesc($event)" ngbDatepicker
+                            #desc="ngbDatepicker" [positionTarget]="buttonDesc">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" #buttonDesc (click)="desc.toggle()"
+                                type="button">
+                                <fa-icon [icon]="faCal"></fa-icon>
+                            </button>
+                        </div> -->
+                        <input type="date" class="form-control" #description="ngModel" required
+                            [class.is-invalid]="description.invalid && description.touched"
+                            (blur)="checkDateDesc(description.value)" (change)="checkDateDesc(description.value)"
+                            placeholder="dd/mm/yyyy" ngModel name="desc">
+                    </div>
+                    <small class="text-danger" [class.d-none]="description.valid || description.untouched">Description
+                        is
+                        required</small>
+                    <small class="text-danger" [class.d-none]="!dateDescHasError || description.untouched">
+                        Date cannot be greater than today</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-2 form-group">
+                    <label class="form-label">Salary</label>
+                    <input type="number" class="form-control" #salary="ngModel" required
+                        [class.is-invalid]="salary.invalid && salary.touched" ngModel name="salary">
+                    <small class="text-danger" *ngIf="salary.value == '' && salary.touched">Salary is required</small>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-2 form-group">
+                    <label class="form-label">Status</label>
+                    <input type="text" class="form-control" #status="ngModel" required
+                        [class.is-invalid]="status.invalid && status.touched" ngModel name="status">
+                    <small class="text-danger" *ngIf="status.value == '' && status.touched">Status is required</small>
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-2 form-group">
+                    <label class="form-label">Group</label>
+                    <select class="custom-select" (change)="validateGroup(group.value)" #group="ngModel"
+                        [class.is-invalid]="groupHasError && group.touched" ngModel name="group" required
+                        aria-label="Default select example">
+                        <option value="default">-- Choose Group --</option>
+                        <option value="gaul">Gaul</option>
+                        <option value="band">Band</option>
+                        <option value="gibah">Gibah</option>
+                        <option value="sosialis">Sosialis</option>
+                        <option value="ambisi">Ambisius</option>
+                        <option value="agamis">Agamis</option>
+                        <option value="gamer">Gamer</option>
+                        <option value="atletis">Atletis</option>
+                        <option value="stylis">Stylish</option>
+                        <option value="pendengar">Pendengar</option>
+                    </select>
+                    <small class="text-danger" [class.d-none]="!groupHasError || group.untouched">Please choose a
+                        group</small>
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <button type="submit" [disabled]="employeeForm.form.invalid || groupHasError" class="btn btn-success">
+                Submit
+            </button>
+            <button class="ml-3 btn btn-secondary" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
