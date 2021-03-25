@@ -1,5 +1,4 @@
 .common {
-    width: 33.3333%;
     margin: 20px auto;
     text-align: center;
   }
@@ -79,4 +78,41 @@ button {
 
 .prev button, .next button, .action button {
     width: 100px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: fit-content;
+        padding: 50px 10px;
+    }
+
+    .search-container, .btn-success, .action button {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: xx-small;
+    }
+
+   
+
+    .search-container,
+    .next button {
+        float: none;
+    }
+
+    .col {
+        text-align: center;
+    }
+
+    .action button,
+    .prev button,
+    .next button {
+        margin-bottom: 10px;
+        font-size: xx-small;
+        width: 50px;
+    }
+
+    .table {
+        font-size: x-small;
+    }
 }

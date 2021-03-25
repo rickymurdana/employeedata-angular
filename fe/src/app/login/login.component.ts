@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(form: NgForm) {
-    // console.log(form.value)
 
     let user: Login = {
       email: form.value.email,

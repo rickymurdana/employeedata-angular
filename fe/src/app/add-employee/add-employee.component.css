@@ -1,5 +1,4 @@
 .common {
-    width: 33.3333%;
     margin: 20px auto;
     text-align: center;
   }
@@ -26,4 +25,11 @@
     border-radius: 30px;
     color: #fff;
     width: 150px;
+  }
+
+  @media screen and (max-width: 576px) {
+    .container {
+        width: fit-content;
+        padding: 50px 10px;
+    }
   }

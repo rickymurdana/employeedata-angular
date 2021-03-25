@@ -10,15 +10,13 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchPipe } from './employee-list/search.pipe';
-import { SortDirective } from './directive/sort.directive';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    SearchPipe,
-    SortDirective
+    SearchPipe
   ],
   imports: [
     BrowserModule,

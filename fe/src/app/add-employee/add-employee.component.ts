@@ -33,20 +33,6 @@ export class AddEmployeeComponent implements OnInit {
       .subscribe(data => this.employees = data);
   }
 
-  // onSelectDateBd(date: NgbDateStruct) {
-  //   if (date != null) {
-  //     // this.bd = date;  
-  //     this.dateBd = this.ngbDateParserFormatter.format(date);
-  //   }
-  // }
-
-  // onSelectDateDesc(date: NgbDateStruct) {
-  //   if (date != null) {
-  //     // this.bd = date;  
-  //     this.dateDesc = this.ngbDateParserFormatter.format(date);
-  //   }
-  // }
-
   validateGroup(value) {
     if (value === 'default') {
       this.groupHasError = true;

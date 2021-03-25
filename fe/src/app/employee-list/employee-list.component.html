@@ -5,10 +5,10 @@
         <div class="common-border"></div>
     </div>
     <div class="row mt-3 mb-3">
-        <div class="col">
+        <div class="col-sm-6 col-12 col-md-6">
             <button class="btn btn-success" (click)="gotoAdd()"> Add Employee </button>
         </div>
-        <div class="col">
+        <div class="col-sm-6 col-12 col-md-6">
             <div class="search-container">
                 <fa-icon [icon]="faSearch" class="search-icon"></fa-icon>
                 <input class="search-input" type="text" placeholder="Search..." [(ngModel)]="searchText">
@@ -35,8 +35,14 @@
                     {{ employee.lastName }}</td>
                 <td>{{ employee.email }}</td>
                 <td class="action">
-                    <button class="btn btn-warning">Edit</button>
-                    <button class="ml-3 btn btn-danger">Delete</button>
+                    <div class="row">
+                        <div class="col-sm-12 col-12 col-md-6">
+                            <button class="btn btn-warning">Edit</button>
+                        </div>
+                        <div class="col-sm-12 col-12 col-md-6">
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
